@@ -60,7 +60,10 @@ cd crowd-tix-app-backend
 - Unit tests and integration tests for both frontend and backend using Jest and Minitests.
 
 ## Authors
-- [Your Name](https://github.com/your-username)
+- Celine
+- Tito
+- Leon
+- Charity
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
