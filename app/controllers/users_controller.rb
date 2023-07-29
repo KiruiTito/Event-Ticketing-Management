@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
 
 
-   #putch
+   #patch
    def update
        user = find_user
        user.role = Role.find_by(name: params[:role])
