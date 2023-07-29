@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-
-
-
+    has_many :tickets
+   
+    
 
     # fields
     validates :email, presence: true, uniqueness: true

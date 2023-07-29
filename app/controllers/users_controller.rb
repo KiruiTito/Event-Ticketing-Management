@@ -22,7 +22,7 @@ class UsersController < ApplicationController
      end
 
 
-   #putch
+   #patch
    def update
        user = find_user
        if user.valid?
