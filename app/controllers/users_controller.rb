@@ -19,12 +19,14 @@ class UsersController < ApplicationController
        else
          render json: { error: "Not authorized" }, status: :unauthorized
        end
-     end
+
+    end
 
 
-   #putch
+   #patch
    def update
        user = find_user
+       user.role = Role.find_by(name: params[:role])
        if user.valid?
            user.update(user_params)
            render json: user
@@ -36,13 +38,15 @@ class UsersController < ApplicationController
  
    #post user
    def create
-       user = User.create!(user_params)
-       if user.valid?
-         render json: user, status: :created
-       else
-           render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
-       end
-   end
+    user = User.new(user_params)
+    user.role = Role.find_by(name: params[:role])  
+
+    if user.save
+      render json: user, status: :created
+    else
+      render json: user.errors, status: :unprocessable_entity
+    end
+  end
 
 
 
@@ -66,7 +70,7 @@ class UsersController < ApplicationController
    private
 
    def user_params
-       params.permit(:username, :password, :email)
+       params.require(:user).permit(:username, :email, :password, :role_id) # Make sure :role_id is permitted
    end
 
    def find_user
