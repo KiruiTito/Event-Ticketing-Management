@@ -1,0 +1,35 @@
+header {
+    height: 100vh;
+    padding-top: 7rem;
+    overflow: hidden;
+     
+
+}
+
+.container_home__container{
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+.home_container{
+    text-align: left;
+    height: 100%;
+    position: relative;
+    display: inline-flex;
+    left: 5%;
+    
+    
+}
+
+.home_details{
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    width: max-content;
+    padding: 0.7rem 1.7rem;
+    position: fixed;
+    right: 5%;
+    gap: 1.3rem;
+    backdrop-filter: blur(15px);
+   
+ }
