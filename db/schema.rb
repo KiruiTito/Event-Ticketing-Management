@@ -18,7 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_083901) do
     t.string "category"
     t.string "start_date"
     t.string "end_date"
-    t.integer "tickets_available"
+    t.integer "vip_tickets_available"
+    t.integer "regular_tickets_available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
