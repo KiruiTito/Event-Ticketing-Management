@@ -53,4 +53,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_083901) do
 
   add_foreign_key "tickets", "events"
   add_foreign_key "tickets", "users"
+  add_foreign_key "users", "roles"
 end

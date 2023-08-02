@@ -3,7 +3,9 @@ import React from 'react';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 // import Ticket from './components/Ticket';
+import React from 'react';
 import './App.css';
+import Home from './components/home/Home';
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
     //     <Route path="/tickets/:eventId" element={<Ticket/>} />
     //   </Routes>
     // </Router>
+    <div className="App">
+      <Home/>
+    </div>
   );
 }
 
