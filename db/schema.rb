@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_085348) do
-  create_table "roles", force: :cascade do |t|
-    t.string "name"
 ActiveRecord::Schema[7.0].define(version: 2023_07_29_083901) do
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -21,8 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_083901) do
     t.string "category"
     t.string "start_date"
     t.string "end_date"
-    t.integer "tickets_available"
-
+    t.integer "vip_tickets_available"
+    t.integer "regular_tickets_available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,12 +41,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_083901) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role_id"
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-
-  add_foreign_key "users", "roles"
   add_foreign_key "tickets", "events"
   add_foreign_key "tickets", "users"
 end
