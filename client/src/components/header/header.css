@@ -2,13 +2,15 @@ header {
     height: 100vh;
     padding-top: 7rem;
     overflow: hidden;
+    position: fixed;
      
 
 }
 
 .container_home__container{
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.938);
     border-radius: 0.5rem;
+    color: white;
 }
 
 .home_container{
@@ -31,5 +33,6 @@ header {
     right: 5%;
     gap: 1.3rem;
     backdrop-filter: blur(15px);
+    color: white;
    
  }

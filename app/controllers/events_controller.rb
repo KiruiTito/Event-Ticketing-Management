@@ -31,18 +31,16 @@ class EventsController < ApplicationController
         event.destroy
         head :no_content
     end 
-
     def search
-        category = params[:category]
-    
-        if category.present?
-          events = Event.where(category: category)
+        location = params[:location]
+        if location.present?
+          events = Event.where("location ILIKE ?", "%#{location}%")
         else
           events = Event.all
         end
-    
         render json: events
       end
+      
     
 
     private 
@@ -51,7 +49,7 @@ class EventsController < ApplicationController
     end 
 
     def set_cors_headers
-        headers['Access-Control-Allow-Origin'] = 'http://localhost:3001'
+        headers['Access-Control-Allow-Origin'] = 'http://localhost:4000'
         headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
         headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
       end

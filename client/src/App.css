@@ -176,7 +176,7 @@
   align-items: center;
   gap: 10px; /* Add some space between buttons */
   position: absolute; /* Position the list absolutely */
-  top: 0; /* Place it at the top of the container */
+  top: 50; /* Place it at the top of the container */
   background-color: #ffffff; /* Optional: Add a background color to the list */
   padding: 50px; /* Optional: Add padding to the list */
   
@@ -241,6 +241,9 @@
   width: 700px;
 }
 
-/* Add the following CSS to style the line breaks */
+.show-categories {
+display: flex;
+justify-content: flex-start;
+}
 
 
