@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :set_cors_headers
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
 
 
@@ -64,9 +65,7 @@ class UsersController < ApplicationController
       render json: {error: 'User not found'}, status: not_found
   end
   end
-
-
-   
+     
    private
 
    def user_params
@@ -81,7 +80,11 @@ class UsersController < ApplicationController
        render json: { error: "User not found" }, status: :not_found
    end
 
-
-
+   def set_cors_headers
+    headers['Access-Control-Allow-Origin'] = 'http://localhost:3001'
+    headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
+  
 end
 

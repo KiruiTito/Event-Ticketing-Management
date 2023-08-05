@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./header.css"
 
 function Header() {
@@ -9,9 +10,15 @@ function Header() {
         <h1>Crowd-Tix</h1>
 
         <div className='home_details'>
-          <h3>Event</h3>
-          <h3>Ticket</h3>
-          <h3>Contact</h3>
+          <Link to="/">
+            <h3>Home</h3>
+          </Link>
+          <Link to="/event">
+            <h3>Events</h3>
+          </Link>
+          <Link to="/contact">
+            <h3>Contact Us</h3>
+          </Link>
           
         </div>
     </div>

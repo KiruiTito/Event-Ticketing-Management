@@ -33,13 +33,14 @@
 .search_button{
     margin-left: 100px;
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.911);
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: white;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 600ms ease ;
+    width:150px;
 }
 
 .search_button:hover{

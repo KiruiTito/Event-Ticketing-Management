@@ -1,30 +1,48 @@
 import React, { useEffect, useState } from "react";
 import Cards from './Cards';
 
-function Main() {
-  const [events, setEvents] = useState([
-    // Your event data...
-  ]);
 
+function Main() {
+  const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const [selectedTicketType, setSelectedTicketType] = useState(null);
+  const [searchLocation, setSearchLocation] = useState(""); // State for the search input
 
   useEffect(() => {
     fetchEvents();
   }, []);
 
+
   const fetchEvents = async () => {
     try {
       const response = await fetch("http://localhost:3000/events");
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
       const data = await response.json();
       setEvents(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching events:", error);
     }
   };
 
+   // Function to handle the search button click
+   const handleSearchClick = () => {
+    // Filter events based on the search location
+    const filtered = events.filter((event) => event.location.toLowerCase().includes(searchLocation.toLowerCase()));
+    setFilteredEvents(filtered);
+  };
+
+  // Function to handle the back button click
+  const handleBackClick = () => {
+    // Clear the search input and set filteredEvents to an empty array to display all events
+    setSearchLocation("");
+    setFilteredEvents([]);
+  };
+  
   const filterEventsByCategory = (category) => {
     setSelectedCategory(category);
   };
@@ -57,26 +75,42 @@ function Main() {
       }
     }
   };
-
-  const filteredEvents = selectedCategory === "All"
-    ? events
-    : events.filter((event) => event.category === selectedCategory);
+  const eventsToDisplay = filteredEvents.length > 0 ? filteredEvents : (selectedCategory === "All" ? events : events.filter((event) => event.category === selectedCategory));
 
   return (
     <div className="main-container">
       <div className="container">
+
+<div className='search_bar'>
+          <input
+            className="search_input"
+            type="text"
+            placeholder="Search events by location"
+            value={searchLocation}
+            onChange={(event) => setSearchLocation(event.target.value)}
+          />
+          <button className="search_button" onClick={handleSearchClick}>
+            Search
+          </button>
+          <button className="search_button" onClick={handleBackClick}>
+            Back
+          </button>
+        </div>
+
         {!selectedEvent && ( // Show "Show Categories" button only when no ticket is selected
-          <button className="button" onClick={() => setShowCategoryButtons(!showCategoryButtons)}>
+        <div className="show-categories">
+          <button className="search_button" onClick={() => setShowCategoryButtons(!showCategoryButtons)}>
             {showCategoryButtons ? "Hide Categories" : "Show Categories"}
           </button>
+          </div>
         )}
 
         {showCategoryButtons && (
           <div className="category-list">
-            <button className="button" onClick={() => filterEventsByCategory("All")}>All</button>
-            <button className="button" onClick={() => filterEventsByCategory("Entertainment")}>Entertainment</button>
-            <button className="button" onClick={() => filterEventsByCategory("Sport")}>Sports</button>
-            <button className="button" onClick={() => filterEventsByCategory("Food")}>Food</button>
+            <button className="search_button" onClick={() => filterEventsByCategory("All")}>All</button>
+            <button className="search_button" onClick={() => filterEventsByCategory("Entertainment")}>Entertainment</button>
+            <button className="search_button" onClick={() => filterEventsByCategory("Sport")}>Sports</button>
+            <button className="search_button" onClick={() => filterEventsByCategory("Food")}>Food</button>
           </div>
         )}
 
@@ -121,10 +155,10 @@ function Main() {
               )}
             </div>
           </div>
-        ) : filteredEvents.length === 0 ? (
-          <div>Loading...</div>
+        ) : eventsToDisplay.length === 0 ? (
+          <div>No events found.</div>
         ) : (
-          filteredEvents.map((event) => (
+          eventsToDisplay.map((event) => (
             <div key={event.id}>
               <Cards
                 title={event.title}
