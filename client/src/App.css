@@ -246,4 +246,243 @@ display: flex;
 justify-content: flex-start;
 }
 
+.p{
+  font-size: 150%;
+  margin-bottom: 40px;
+}
 
+/* .img{
+  margin-bottom: 40px;
+} */
+.link{
+  font-size: 150%;
+  margin-top: 400px;
+  margin-block-start: 0%;
+  font-weight: bolder;
+  font-style:italic;
+}
+
+.footer-basic {
+  padding: 40px 0;
+  background-color: #181818;
+  color: #ffffff;
+}
+
+.footer-basic footer {
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+
+.footer-basic .social a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #643A6B;
+}
+
+.footer-basic .social a:hover {
+  color: #643A6B;
+}
+
+.footer-basic ul.list-inline li {
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0;
+  
+}
+
+.footer-basic ul.list-inline li a {
+  color: #643A6B;
+}
+
+.footer-basic ul.list-inline li a:hover {
+  color: #0E385F;
+}
+
+.footer-basic .copyright {
+  font-size: 14px;
+  margin-top: 15px;
+  color: #faf3fc;
+}
+
+.cart-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  /* Center the cart container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px; 
+  width: 550px;
+}
+
+/* Rest of the CSS code remains the same */
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.quantity {
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.overall-total {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+/* Form header */
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Label styles */
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Input styles */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+/* Button styles */
+.signup-button {
+  display: block;
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Loading button styles */
+.signup-button[disabled] {
+  background-color: gray;
+  cursor: not-allowed;
+}
+.h1signup {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: black;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.login-button {
+  display: block;
+  width: 8%;
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+#signn{
+  color: #000;
+}
