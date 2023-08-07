@@ -20,7 +20,6 @@ header {
     display: inline-flex;
     left: 5%;
     
-    
 }
 
 .home_details{
@@ -32,7 +31,9 @@ header {
     position: fixed;
     right: 5%;
     gap: 1.3rem;
-    backdrop-filter: blur(15px);
-    color: white;
+    /* backdrop-filter: blur(15px); */
+    text-decoration: none;
+    color: rgb(255, 244, 244);
+    transition: color 0.3s ease;
    
  }

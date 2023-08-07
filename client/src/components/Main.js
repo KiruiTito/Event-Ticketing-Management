@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Cards from './Cards';
+import Cart from './Cart';
+// import Calendar from 'react-calendar'
+// import AddToCalendar from 'react-add-to-calendar'; // Import the AddToCalendar component
+// import 'react-add-to-calendar/dist/react-add-to-calendar.css'; // Import the styles for the component
+
 
 
 function Main() {
@@ -10,6 +15,8 @@ function Main() {
   const [showCategoryButtons, setShowCategoryButtons] = useState(false);
   const [selectedTicketType, setSelectedTicketType] = useState(null);
   const [searchLocation, setSearchLocation] = useState(""); // State for the search input
+  const [paymentConfirmed, setPaymentConfirmed] = useState(false);
+  
 
   useEffect(() => {
     fetchEvents();
@@ -50,6 +57,7 @@ function Main() {
   const handleBookTicket = (event) => {
     setSelectedEvent(event);
     setSelectedTicketType(null);
+    setSelectedTicketQuantity(1); 
 
   };
 
@@ -70,16 +78,47 @@ function Main() {
       const isConfirmed = window.confirm(`Are you sure you want to buy a ${ticketTypeName} ticket?`);
       if (isConfirmed) {
         setEvents(updatedEvents);
-        setSelectedTicketType(null);
+        setSelectedTicketType(ticketType); 
+        setPaymentConfirmed(true); 
       
       }
     }
   };
+
+  // const handleConfirmPayment = () => {
+  //   // Implement your logic to handle payment confirmation
+  //   setPaymentConfirmed(true);
+  // };
+
+  const handleCancelPayment = () => {
+    // Implement your logic to handle payment cancellation
+    setPaymentConfirmed(false);
+  };
+
+  const [selectedTicketQuantity, setSelectedTicketQuantity] = useState(1); // State for the ticket quantity
+
+  // ... (Rest of the code remains the same)
+
+  // eslint-disable-next-line 
+  const handleIncrementTicketQuantity = () => {
+    setSelectedTicketQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  // eslint-disable-next-line 
+  const handleDecrementTicketQuantity = () => {
+    if (selectedTicketQuantity > 1) {
+      setSelectedTicketQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+  
+
+
   const eventsToDisplay = filteredEvents.length > 0 ? filteredEvents : (selectedCategory === "All" ? events : events.filter((event) => event.category === selectedCategory));
 
   return (
     <div className="main-container">
       <div className="container">
+     
 
 <div className='search_bar'>
           <input
@@ -93,7 +132,7 @@ function Main() {
             Search
           </button>
           <button className="search_button" onClick={handleBackClick}>
-            Back
+            All Events
           </button>
         </div>
 
@@ -153,7 +192,10 @@ function Main() {
                   Buy Ticket
                 </button>
               )}
+
             </div>
+
+          
           </div>
         ) : eventsToDisplay.length === 0 ? (
           <div>No events found.</div>
@@ -178,7 +220,7 @@ function Main() {
       {/* Ticket information and buttons on the right */}
       {selectedEvent && (
         <div className="right-section">
-          {selectedTicketType === "regular" && (
+          {selectedEvent && !paymentConfirmed && selectedTicketType === "regular" && (
             <div className="ticket-info">
               <h2>Why is a Regular Ticket better for you?</h2>
   <p>
@@ -203,7 +245,7 @@ function Main() {
   </div>
  )}
 
-{selectedTicketType === "vip" && (
+{selectedEvent && !paymentConfirmed && selectedTicketType === "vip" && (
             <div className="ticket-info">
               <h2>Why is a VIP Ticket better for you?</h2>
   <p>
@@ -236,20 +278,28 @@ function Main() {
       choice for individuals seeking a more lavish and unforgettable time at the event.
     </span>
   </p>
-</div>
+  </div>
+          )}
 
-
-
-)}
-</div>
-)}
-</div>
-);
+          {/* Cart section */}
+          {paymentConfirmed  && (
+            <Cart
+              cartItems={[
+                {
+                  eventTitle: selectedEvent.title,
+                  ticketType: selectedTicketType === "regular" ? "Regular Ticket" : "VIP Ticket",
+                  ticketPrice: selectedTicketType === "regular" ? "3000ksh" : "7500ksh",
+                  ticketQuantity: selectedTicketQuantity,
+                }
+              ]}
+              onGoBack={handleCancelPayment}
+              setSelectedTicketQuantity={setSelectedTicketQuantity}
+            />
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Main;
-
-
-
-
-

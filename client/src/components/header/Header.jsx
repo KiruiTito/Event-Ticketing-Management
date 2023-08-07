@@ -10,16 +10,19 @@ function Header() {
         <h1>Crowd-Tix</h1>
 
         <div className='home_details'>
-          <Link to="/">
-            <h3>Home</h3>
+          <Link to="/home">
+            <h3 >Home</h3>
+          </Link>
+          <Link to="/About us">
+            <h3>About Us</h3>
           </Link>
           <Link to="/event">
             <h3>Events</h3>
           </Link>
-          <Link to="/contact">
-            <h3>Contact Us</h3>
+          <Link to="/">
+            <h3>Logout!</h3>
           </Link>
-          
+
         </div>
     </div>
   </div>
