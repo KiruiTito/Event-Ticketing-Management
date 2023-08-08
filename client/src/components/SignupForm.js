@@ -41,6 +41,7 @@ const SignUpForm = (props) => {
 
   return (
     <div className="form-container">
+      <div className="signup-card">
       <h1 className='h1signup'> Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -71,6 +72,7 @@ const SignUpForm = (props) => {
 
                       
       </form>
+    </div>
     </div>
   );
 };
