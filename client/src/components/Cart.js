@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Cart({ cartItems, onGoBack, setSelectedTicketQuantity }) {
   const [ticketQuantity, setTicketQuantity] = useState(1);
@@ -61,7 +62,9 @@ function Cart({ cartItems, onGoBack, setSelectedTicketQuantity }) {
       <button className="button" onClick={onGoBack}>
         Clear Cart
       </button>
+      <Link to={"https://book.stripe.com/test_00geXX8iJ3mCdfaaEE"}>
       <button className="button" > Proceed to payment</button>
+      </Link>
       {/* <button className="button" onClick={() => handleConfirmPayment()}>
         Confirm Payment
       </button> */}

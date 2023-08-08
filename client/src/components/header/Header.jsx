@@ -19,6 +19,9 @@ function Header() {
           <Link to="/event">
             <h3>Events</h3>
           </Link>
+          <Link to="/addevent">
+            <h3>Add event</h3>
+          </Link>
           <Link to="/">
             <h3>Logout!</h3>
           </Link>
