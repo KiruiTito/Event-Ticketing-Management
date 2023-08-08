@@ -1,0 +1,100 @@
+.homepage {
+    background: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/c19af117898171.562c0ab4d47a1.jpg") no-repeat center center;
+    background-size: cover;
+    /* position: relative;
+    z-index: 1; */
+    color: rgb(255, 248, 248);
+    padding: 50px;
+    height: 90vh;
+    text-align: center;
+    animation: changeBackground 10s infinite;
+  }
+  
+  
+  .hero {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .h1nav {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #fff7f7
+  }
+  
+  .pnav {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+  }
+  
+ 
+  .footernav {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    height: 100px;
+  
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .signup{
+    /* display: block; */
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer; 
+  }
+
+  .signup :hover{
+    color: #00000083;
+  }
+  .signup span{
+    display: inline;
+}
+.gs-show{
+    width: 100%;
+}
+.gs-show2{
+    font-size: 1rem;  
+}
+
+.login-nav {
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer; 
+    margin: 50px auto;
+    /* position: relative; */
+    align-items: center;
+    display:flex;
+}
+
+.login-nav :hover {
+    color: #00000070;
+}
+
+.or-text {
+    color: #fffefe;
+    font-size: 22px;
+    margin: 10px 10;
+    padding: 0px;
+  }
+
+  .buttn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

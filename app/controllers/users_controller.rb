@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :set_cors_headers
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
 
 
@@ -39,8 +40,13 @@ class UsersController < ApplicationController
    #post user
    def create
     user = User.new(user_params)
-    user.role = Role.find_by(name: params[:role])  
-
+  
+    # Check if a user with the same email or username already exists
+    if User.exists?(email: user.email) || User.exists?(username: user.username)
+      render json: { error: 'User with the same email or username already exists' }, status: :unprocessable_entity
+      return
+    end
+  
     if user.save
       render json: user, status: :created
     else
@@ -64,13 +70,11 @@ class UsersController < ApplicationController
       render json: {error: 'User not found'}, status: not_found
   end
   end
-
-
-   
+     
    private
 
    def user_params
-       params.require(:user).permit(:username, :email, :password, :role_id) # Make sure :role_id is permitted
+       params.require(:user).permit(:username, :email, :password) # Make sure :role_id is permitted
    end
 
    def find_user
@@ -81,7 +85,11 @@ class UsersController < ApplicationController
        render json: { error: "User not found" }, status: :not_found
    end
 
-
-
+   def set_cors_headers
+    headers['Access-Control-Allow-Origin'] = 'http://localhost:4000'
+    headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
+  
 end
 
