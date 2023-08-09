@@ -36,14 +36,14 @@ function LoginForm() {
     <>
      
      <form onSubmit={handleSubmit} className="login-form">
-     <h1 id='signi]n'>Login</h1>
+     <h1 id='sign in'>Login</h1>
       <label>
         Username:
-        <input type="text"  onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+        <input type="text"  onChange={(e) => setFormData({ ...formData, username: e.target.value })} required/>
       </label>
       <label>
         Password:
-        <input type="password"  onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+        <input type="password"  onChange={(e) => setFormData({ ...formData, password: e.target.value })} required />
       </label>
 
              {!isLoading &&
