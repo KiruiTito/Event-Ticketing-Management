@@ -170,7 +170,7 @@ function Main() {
             {/* Display ticket price based on the selected ticket type */}
             {selectedTicketType && (
               <h1>
-                Ticket Price: {selectedTicketType === "regular" ? "3000ksh" : "7500ksh"}
+                Ticket Price: {selectedTicketType === "regular" ? "240USD" : "575USD"}
               </h1>
             )}
 
@@ -288,7 +288,7 @@ function Main() {
                 {
                   eventTitle: selectedEvent.title,
                   ticketType: selectedTicketType === "regular" ? "Regular Ticket" : "VIP Ticket",
-                  ticketPrice: selectedTicketType === "regular" ? "3000ksh" : "7500ksh",
+                  ticketPrice: selectedTicketType === "regular" ? "240USD" : "575USD",
                   ticketQuantity: selectedTicketQuantity,
                 }
               ]}

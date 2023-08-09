@@ -10,6 +10,7 @@ import About from './components/About'
 import Login from './components/Login';
 import SignupForm from './components/SignupForm';
 import LandingNav from './components/Nav';
+import Addevent from './components/event/Addevent';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/About us' element={<About />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignupForm />}/>
+        <Route path='/addevent' element={<Addevent />}/>
         {/* <Route path='/cart' element={<Cart />}/> */}
         {/* <Route path='/cart' element={<TicketDetails />}/> */}
         

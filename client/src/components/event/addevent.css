@@ -1,0 +1,50 @@
+.event-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url("https://pin.it/2owlFH9");
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+  }
+  
+  .event-form form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .event-inputs {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .addevent-button {
+    background-color: #0d0d0d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .addevent-button h3 {
+    margin: 0;
+  }
+  
+  .addevent-button:hover {
+    background-color: #0056b3;
+  }
