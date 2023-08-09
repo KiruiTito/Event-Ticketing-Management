@@ -28,8 +28,8 @@ header {
     text-align: right;
     width: max-content;
     padding: 0.7rem 1.7rem;
-    position: fixed;
-    right: 5%;
+    position: relative;
+    left: 65%;
     gap: 1.3rem;
     /* backdrop-filter: blur(15px); */
     text-decoration: none;

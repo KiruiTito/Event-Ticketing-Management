@@ -9,6 +9,8 @@ function Addevent(){
     const [category, setCategory] = useState("")
     const [start_date, setStartdate] = useState("")
     const [end_date, setEnddate] = useState("")
+    const [vip_tickets_available, setvip_tickets_available] = useState("")
+    const [regular_tickets_available, setregular_tickets_available] = useState("")
     const navigate = useNavigate();
 
 
@@ -21,7 +23,9 @@ function Addevent(){
             location,
             category,
             start_date,
-            end_date
+            end_date,
+            vip_tickets_available,
+            regular_tickets_available
         }
         console.log(formData);
 
@@ -40,6 +44,8 @@ function Addevent(){
                     setCategory("")
                     setStartdate("")
                     setEnddate("")
+                    setvip_tickets_available("")
+                    setregular_tickets_available("")
                     navigate("/event")
                 })
             }
@@ -58,7 +64,7 @@ function Addevent(){
                     value={title}
                     onChange={(e)=> setTitle(e.target.value)}
 
-                    /><br />
+                    required /><br/>
 
                 <label htmlfor="image">Image:</label>
                     <input className="event-inputs"
@@ -67,7 +73,7 @@ function Addevent(){
                     value={image_url}
                     onChange={(e)=> setImage(e.target.value)}
 
-                    /><br />   
+                    required/><br />   
 
                 <label htmlfor="location">Location:</label>
                     <input className="event-inputs"
@@ -76,7 +82,7 @@ function Addevent(){
                     value={location}
                     onChange={(e)=> setLocation(e.target.value)}
 
-                    /><br />
+                    required /><br  />
 
                     
                 <label htmlfor="category">Category:</label>
@@ -86,7 +92,7 @@ function Addevent(){
                     value={category}
                     onChange={(e)=> setCategory(e.target.value)}
 
-                    /><br /> 
+                    required /><br  /> 
 
 
                 <label htmlfor="startdate">Start-Date:</label>
@@ -96,7 +102,7 @@ function Addevent(){
                     value={start_date}
                     onChange={(e)=> setStartdate(e.target.value)}
 
-                    /><br /> 
+                    required /><br  /> 
 
 
                 <label htmlfor="enddate">End-Date:</label>
@@ -106,7 +112,28 @@ function Addevent(){
                     value={end_date}
                     onChange={(e)=> setEnddate(e.target.value)}
 
-                    /><br />    
+                    required/><br />    
+
+
+                <label htmlfor="Vip tickets avialable">vip_tickets_available:</label>
+                    <input className="event-inputs"
+                    type="text"
+                    placeholder="VIP tickect available"
+                    value={vip_tickets_available}
+                    onChange={(e)=> setvip_tickets_available(e.target.value)}
+
+                    required /><br />    
+
+
+
+                <label htmlfor="Regular tickets available">regular_tickets_available:</label>
+                    <input className="event-inputs"
+                    type="text"
+                    placeholder="Regular tickets available"
+                    value={regular_tickets_available}
+                    onChange={(e)=> setregular_tickets_available(e.target.value)}
+
+                    required /><br />    
 
                 <button className="addevent-button" type="submit">
                     <h3>Add Event</h3>
