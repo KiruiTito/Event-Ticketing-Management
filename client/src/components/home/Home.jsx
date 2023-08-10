@@ -33,7 +33,7 @@ function Home() {
           alt={`Slide ${currentIndex + 1}`}
         />
         <div className="text-overlay">
-          <h1>Welcome, Leon </h1>
+          <h1>Welcome, Charity </h1>
           <h2> Get ready to embark on a journey of excitement and discovery as we bring you the best events in town, curated by top creators and organizers.  Let the fun begin!</h2>
           <div className='link'>
 <a href="/About us" className="link">Click here to view more!</a>
