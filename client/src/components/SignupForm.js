@@ -43,6 +43,8 @@ const SignUpForm = (props) => {
     <div className="form-container">
       <div className="signup-card">
       <h1 className='h1signup'> Sign Up</h1>
+  <p className='psignup'>Sign up now to personalize your event recommendations and keep track of your favorite events.</p>
+
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
